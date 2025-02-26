@@ -15,12 +15,50 @@
  />
   <title>Tasty treats</title>
   <!-- Connect Bootstrap -->
+   <style>
+    theme-dark {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .scroll-container {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+   </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tasty Treats</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#" id="homeLink">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="favoritesLink">Favorites</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" id="categoriesLink">Categories</a></li>
+        </ul>
+        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#orderModal">
+          <i class="bi bi-basket"></i> Order Now
+        </button>
+        <button class="btn btn-outline-secondary" id="themeSwitcher">Toggle Theme</button>
+      </div>
+    </div>
+  </nav>
 
-  
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/main.js" type="module"></script>
+  <script src="./js/app.js" type="module"></script>
+
 </body>
 </html>
