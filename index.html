@@ -31,30 +31,157 @@
    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Tasty Treats</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarContent"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#" id="homeLink">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" id="favoritesLink">Favorites</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" id="categoriesLink">Categories</a></li>
-        </ul>
-        <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#orderModal">
-          <i class="bi bi-basket"></i> Order Now
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Left: Burger Menu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Left: Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Center: Logo -->
+    <div class="">
+    <a class="navbar-brand fw-bold" href="#">tasty<span class="text-success">Treats.</span></a>
+    </div>
+    <!-- Right: Cart Icon -->
+     <div class="">
+       <button class="btn btn-outline-success position-relative">
+      <i class="bi bi-cart"></i>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+        0
+      </span>
+    </button>
+     </div>
+  </div>
+</nav>
+
+<!-- Offcanvas Menu for Mobile -->
+<div class="offcanvas offcanvas-start bg-dark text-light" id="offcanvasMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link text-light" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Favorites</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Categories</a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="container mb-4">
+    <h3>Categories</h3>
+    <div class="d-flex flex-wrap" id="categoriesContainer">
+      <button class="btn btn-outline-primary me-2 active" data-category="">All Categories</button>
+    </div>
+  </div>
+
+
+  <!-- Hero Section -->
+<section class="container mt-5 pt-5">
+  <div class="row align-items-center">
+    <!-- Left Side: Text Content -->
+    <div class="col-md-6">
+      <h1 class="fw-bold">
+        LEARN TO COOK <span class="text-success">TASTY TREATS'</span> CUSTOMIZABLE MASTERCLASS
+      </h1>
+      <p class="text-muted">
+        TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video Guides.
+      </p>
+      <button class="btn btn-success">Order now</button>
+    </div>
+
+    <!-- Right Side: Image Slider (Bootstrap Carousel) -->
+    <div class="col-md-6">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carouselImages">
+          <div class="carousel-item active">
+            <img src="https://via.placeholder.com/500x300" class="d-block w-100 rounded" alt="Masterclass">
+            <div class="carousel-caption d-none d-md-block">
+              <p>GRILLED, SMOKY, DELICIOUS BARBECUE</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
         </button>
-        <button class="btn btn-outline-secondary" id="themeSwitcher">Toggle Theme</button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
     </div>
-  </nav>
+  </div>
+</section>
+
+
+<!-- Filters Section -->
+<section class="container my-4">
+  <div class="row g-3">
+    <!-- Category Filter -->
+    <div class="col-md-3">
+      <button class="btn btn-outline-dark w-100">All categories</button>
+      <ul class="list-group mt-2" id="categoriesList">
+        <!-- Categories will be loaded here dynamically -->
+      </ul>
+    </div>
+
+    <!-- Search Input -->
+    <div class="col-md-3">
+      <input type="text" class="form-control" id="searchKeyword" placeholder="Enter text">
+    </div>
+
+    <!-- Time Filter -->
+    <div class="col-md-2">
+      <select class="form-select" id="timeFilter">
+        <option value="">Time</option>
+        <option value="10">10 min</option>
+        <option value="20">20 min</option>
+        <option value="30">30 min</option>
+        <option value="40">40 min</option>
+      </select>
+    </div>
+
+    <!-- Area Filter -->
+    <div class="col-md-2">
+      <select class="form-select" id="areaFilter">
+        <option value="">Area</option>
+        <option value="Italian">Italian</option>
+        <option value="French">French</option>
+      </select>
+    </div>
+
+    <!-- Ingredients Filter -->
+    <div class="col-md-2">
+      <select class="form-select" id="ingredientFilter">
+        <option value="">Ingredients</option>
+        <option value="tomato">Tomato</option>
+        <option value="cheese">Cheese</option>
+      </select>
+    </div>
+
+    <!-- Reset Filters Button -->
+    <div class="col-md-12 text-end">
+      <button class="btn btn-link text-dark" id="resetFilters">✖ Reset the filter</button>
+    </div>
+  </div>
+</section>
+
+
+  
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
