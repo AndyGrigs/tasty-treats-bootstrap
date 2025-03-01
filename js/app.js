@@ -85,8 +85,8 @@ async function fetchData(endpoint) {
                     </div>
 
                     <!-- Gericht -->
-                    <div class="col-md-6 text-center bg-dark rounded-5">
-                        <img src="${topic.imgWebpUrl}" class="img-fluid rounded" alt="${topic.name}">
+                    <div style="width: 180px;" class="col-md-6 text-center bg-dark rounded-5">
+                        <img src="${topic.imgWebpUrl}"  class="img-fluid rounded" alt="${topic.name}">
                         <p class="fw-bold mt-2">${topic.name}</p>
                         <p class="text-muted">${topic.area}</p>
                     </div>
